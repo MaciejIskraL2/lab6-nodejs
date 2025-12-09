@@ -17,4 +17,5 @@ jobs:
     - name: Build and push image
       run: |
         docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/python-app:latest .
+        docker tag $IMAGE:latest $IMAGE:${{ github.sha }}
         docker push ${{ secrets.DOCKERHUB_USERNAME }}/python-app:latest
